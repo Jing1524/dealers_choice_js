@@ -1,0 +1,18 @@
+h1{
+   font-family: Helvetica;
+   font-style: italic;
+   color: #325288;
+}
+
+div {
+   border:solid;
+   border-color: cadetblue;
+   border-width: .5rem;
+   display: flex;
+   justify-content: space-around;
+   
+}
+
+div > ul{
+   
+}
