@@ -1,6 +1,8 @@
 const path = require('path');
 
 const express = require('express');
+const { report } = require('process');
+const e = require('express');
 
 const app = express();
 
@@ -57,6 +59,19 @@ app.get('/musician',(req, res, next)=>{
 });
 
 app.get('/musician/:id',(req, res, next)=>{
+  let content = "";
+  console.log("before if")
+  
+  if(parseInt(req.params.id) === 1){
+    
+    content = "John William Coltrane (September 23, 1926 – July 17, 1967) was an American jazz saxophonist and composer. Working in the bebop and hard bop idioms early in his career, Coltrane helped pioneer the use of modes and was at the forefront of free jazz. ";
+    // console.log("here ");
+  } else if(parseInt(req.params.id) === 2){
+    content = "Thelonious Sphere Monk[2] (/θəˈloʊniəs/, October 10, 1917[3] – February 17, 1982) was an American jazz pianist and composer. He had a unique improvisational style and made numerous contributions to the standard jazz repertoire"
+  } else if(parseInt(req.params.id) === 3){
+    content = "Miles Dewey Davis III (May 26, 1926 – September 28, 1991) was an American trumpeter, bandleader, and composer. He is among the most influential and acclaimed figures in the history of jazz and 20th-century music. Davis adopted a variety of musical directions in a five-decade career that kept him at the forefront of many major stylistic developments in jazz."
+  }
+ 
     res.send(`
       <html>
         <head>
@@ -67,8 +82,7 @@ app.get('/musician/:id',(req, res, next)=>{
         <h1>TONE WORLD</h1>
        
         <div>
-          
-           info about musicians ${req.params.id}
+          ${content}
           
         
         </div>
